@@ -1,0 +1,41 @@
+shrey_exercise.hello_world: #this is the route name for  the controller
+  path: '/guys' #path
+  defaults:
+    _controller: '\Drupal\shrey_exercise\Controller\CustomController::hello' #class and function
+    _title: 'HEY GUYSSSSS' #title
+  requirements:
+    _permission: 'access content' #providing permissions here
+
+shrey_exercise.custom_form: #this is the route name  for custom form page
+  path: "/details" #path
+  defaults:
+    _form: '\Drupal\shrey_exercise\Form\CustomForm' #class and function
+    _title: "Custom Form to get user details" #title
+  requirements:
+    _permission: 'access content' #providing permission here
+
+shrey_exercise.configform: #this is the route name for config form
+  path: '/configform' #path
+  defaults:
+    _form: '\Drupal\shrey_exercise\Form\ConfigForm' #class and function
+    _title: 'Custom Configuration Form' #title
+  requirements:
+    _permission: 'shrey exercise config form permission' #providing permission here
+  options:
+    _admin_route: true #admin theme
+
+shrey_exercise.dependent_drop: #this is the route name  for custom form page
+  path: "/drop" #path
+  defaults:
+    _form: '\Drupal\shrey_exercise\Form\DependentDrop' #class and function
+    _title: "dropdown" #title
+  requirements:
+    _permission: 'access content' #providing permission here
+
+shrey_exercise.dependent_form: #this is the route name
+  path: '/dropdownform' #path
+  defaults:
+    _form: '\Drupal\shrey_exercise\Form\DropdownForm' #class and function
+    _title: 'dropdownform' #title
+  requirements:
+    _permission: 'access content' #providing permission here

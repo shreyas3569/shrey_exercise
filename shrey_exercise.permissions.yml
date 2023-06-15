@@ -1,0 +1,4 @@
+#here we are creating new permission
+shrey exercise config form permission:   #this will be the machine name of the permission
+  title: config form Page permission #title of the permission
+  description: description  #description of the permission

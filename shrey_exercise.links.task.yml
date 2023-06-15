@@ -1,0 +1,21 @@
+#this is to create a tabs
+shrey_exercise.custom_form: #this will be the machine name
+  route_name: shrey_exercise.custom_form #where the tab should lead to
+  title : custom form #this is the title of the tab
+  base_route: shrey_exercise.hello_world #this shows where the tab should appear
+  weight: 10
+
+
+
+shrey_form.configform: #this is the machine name
+  route_name: shrey_exercise.configform #where the tab should lead to
+  title : config form #this is the title of the tab
+  base_route: shrey_exercise.hello_world #this shows where the tab should appear
+  weight: 11
+
+
+shrey_exercise.hello_world: #this is the machine name
+  route_name: shrey_exercise.hello_world #where the tab should lead to
+  title : controller #title of the tab
+  base_route: shrey_exercise.hello_world #this shows where the tab should appear
+  weight: 12

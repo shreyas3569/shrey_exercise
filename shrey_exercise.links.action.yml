@@ -1,0 +1,5 @@
+add_content.article: #this is the machine name
+  route_name: "shrey_exercise.configform" #this shows where the button should take us to
+  title: "Config form" #title of the form
+  appears_on:
+    - "shrey_exercise.custom_form" # this shows where the button should appear

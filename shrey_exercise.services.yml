@@ -1,0 +1,22 @@
+services:
+  custom_service:   #The service which we provide
+    class : Drupal\shrey_exercise\CustomService #class and its location
+    arguments: ['@config.factory']  #arguments
+
+  shrey_exercise_user_login:
+    class: '\Drupal\shrey_exercise\EventSubscriber\UserLoginDemo'
+    tags:
+      - { name: 'event_subscriber' }
+    arguments: ['@database','@date.formatter','@messenger']
+
+  events_subscriber: #here intialiing eventsubscriber
+    class: '\Drupal\shrey_exercise\EventSubscriber\EventSubscriberDemo' #the file is location
+    tags:
+      - { name: 'event_subscriber' } # to make use of the event subscriber
+    arguments: ['@messenger']
+
+  shrey_exercise.commands:  #creating drush command
+    class: \Drupal\shrey_exercise\Commands\DrushCommandsDemo #the file is location
+    arguments: ['@entity_type.manager']  #including the argumenet
+    tags:
+      - { name: drush.command }

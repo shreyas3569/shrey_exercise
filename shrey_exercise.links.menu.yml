@@ -1,0 +1,5 @@
+system.admin.view:
+  title: HELLO #this is the menu title
+  route_name: shrey_exercise.hello_world  #where the menu should take us to
+  parent: system.admin #this is a parent menu
+  menu_name: XXX #this is the menu name
