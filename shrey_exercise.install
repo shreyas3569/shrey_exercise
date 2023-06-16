@@ -58,20 +58,7 @@ function shrey_exercise_schema() {
 /**
  * Implements hook_update().
  */
-
-/**
- * Update task.
- */
 function shrey_exercise_update_100403() {
-  $config = \Drupal::configFactory()->getEditable('shrey_exercise.settings');
-  $config->set('NAME', 'Jaipur');
-  $config->save();
-}
-
-/**
- * Implements hook_update().
- */
-function shrey_exercise_update_100406() {
   $database = \Drupal::database();
   $schema = $database->schema();
   $country_table_name = 'country';
@@ -94,8 +81,8 @@ function shrey_exercise_update_100406() {
   $schema->createTable($country_table_name, $country_table_schema);
   $countries = [
       ['name' => 'INDIA'],
-      ['name' => 'UK'],
-      ['name' => 'canada'],
+      ['name' => 'CHINA'],
+      ['name' => 'JAPAN'],
   ];
   foreach ($countries as $country) {
     $database->insert($country_table_name)
@@ -130,11 +117,11 @@ function shrey_exercise_update_100406() {
   ];
   $schema->createTable($state_table_name, $state_table_schema);
   $states = [
-      ['country_id' => 1, 'name' => 'karnataka'],
-      ['country_id' => 1, 'name' => 'tamilnadu'],
-      ['country_id' => 2, 'name' => 'kerala'],
-      ['country_id' => 2, 'name' => 'andhra'],
-      ['country_id' => 3, 'name' => 'maharashtra'],
+      ['country_id' => 1, 'name' => 'MAHARASTRA'],
+      ['country_id' => 1, 'name' => 'KERALA'],
+      ['country_id' => 2, 'name' => 'STATE1'],
+      ['country_id' => 2, 'name' => 'STATE2'],
+      ['country_id' => 3, 'name' => 'STATE3'],
   ];
   foreach ($states as $state) {
     $database->insert($state_table_name)
@@ -169,12 +156,12 @@ function shrey_exercise_update_100406() {
   ];
   $schema->createTable($district_table_name, $district_table_schema);
   $districts = [
-      ['state_id' => 1, 'name' => 'bangalore'],
-      ['state_id' => 1, 'name' => 'mysore'],
-      ['state_id' => 2, 'name' => 'chennai'],
-      ['state_id' => 2, 'name' => 'madurai'],
-      ['state_id' => 3, 'name' => 'palakad'],
-      ['state_id' => 3, 'name' => 'munnar'],
+      ['state_id' => 1, 'name' => 'PUNE'],
+      ['state_id' => 1, 'name' => 'KOCHIN'],
+      ['state_id' => 2, 'name' => 'DIST1'],
+      ['state_id' => 2, 'name' => 'DIST2'],
+      ['state_id' => 3, 'name' => 'DIST3'],
+      ['state_id' => 3, 'name' => 'DIST4'],
   ];
   foreach ($districts as $district) {
     $database->insert($district_table_name)
