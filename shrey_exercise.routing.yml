@@ -32,3 +32,16 @@ shrey_exercise.dependent_form: #this is the route name
   requirements:
     _permission: 'access content' #providing permission here
 
+shrey_exercise.mycontroller:
+  path: 'node/{node}/title'
+  defaults:
+    _controller: '\Drupal\shrey_exercise\Controller\MyController::nodeTitle'
+    _title_callback: '\Drupal\shrey_exercise\Controller\MyController::titleCallback'
+  options:
+    _admin_route: true
+    parameters:
+      node:
+        type: entity:node
+  requirements:
+    _custom_access: '\Drupal\shrey_exercise\Controller\MyController::cloneNode'
+    _permission: 'controller permission'

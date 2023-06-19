@@ -2,3 +2,9 @@
 shrey exercise config form permission:   #this will be the machine name of the permission
   title: config form Page permission #title of the permission
   description: description  #description of the permission
+
+controller permission:
+  title: 'Quick Node Clone Settings'
+  description: 'Administer Quick Node Clone Settings'
+permission_callbacks:
+  - \Drupal\shrey_exercise\MyPermission::nodePermissions
