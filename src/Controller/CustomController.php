@@ -53,4 +53,12 @@ class CustomController extends ControllerBase {
     ];
   }
 
+  public function modalLink() {
+    $build['#attached']['library'][] = 'core/drupal.dialog.ajax';
+    $build = [
+        '#markup' => '<a href="details" class="use-ajax" data-dialog-type="modal">Click here</a>',
+    ];
+    return $build;
+}
+
 }

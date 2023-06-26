@@ -45,3 +45,27 @@ shrey_exercise.mycontroller:
   requirements:
     _custom_access: '\Drupal\shrey_exercise\Controller\MyController::cloneNode'
     _permission: 'controller permission'
+
+shrey_exercise.JsTask:
+  path: '/jsform'
+  defaults:
+    _form: '\Drupal\shrey_exercise\Form\JsTask'
+    _title: 'form.js'
+  requirements:
+    _permission: 'access content'
+
+shrey_exercise.modal-page:
+  path: '/modal-page'
+  defaults:
+    _controller: '\Drupal\shrey_exercise\Controller\CustomController::modalLink'
+    _title: 'open modal page'
+  requirements:
+    _permission: 'access content'
+
+shrey_exercise.token_task:
+  path: '/token'
+  defaults:
+    _form: '\Drupal\shrey_exercise\Form\TokenForm'
+    _title: 'token Form'
+  requirements:
+    _permission: 'access content'

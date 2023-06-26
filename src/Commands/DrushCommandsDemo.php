@@ -10,19 +10,28 @@ use Drush\Commands\DrushCommands;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
- * The undocumented class.
+ * Undocumented class.
  */
 class DrushCommandsDemo extends DrushCommands {
   // Extending the base class.
 
   /**
-   * The entity manager service.
+   * Entity manager service.
    *
    * @var Drupal\Core\Entity\EntityTypeManagerInterface $entityManager
    */
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     $this->entityManager = $entityTypeManager;
     parent::__construct();
+  }
+
+  /**
+   * Create function.
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager')
+    );
   }
 
   /**
@@ -40,10 +49,10 @@ class DrushCommandsDemo extends DrushCommands {
    * @aliases get-title
    *
    * @return \Consolidation\OutputFormatters\StructuredData\RowsOfFields
-   *   This is about loading the task.
+   *   This is about loading.
    */
   public function drushDemo() {
-    $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'article']);
+    $nodes = $this->entityManager->getStorage('node')->loadByProperties(['type' => 'page']);
     $rows = [];
     foreach ($nodes as $node) {
       $rows[] = [

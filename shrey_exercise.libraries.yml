@@ -3,3 +3,7 @@ shrey_exercise_styles: #this is the library name
   css:
     theme:
       css/shrey_exercise_styles.css: {}   #here we are adding css file in libraries so it can be accessed anytime.
+jss_lib:
+  version: 1.x
+  js:
+    js/form.js: {}

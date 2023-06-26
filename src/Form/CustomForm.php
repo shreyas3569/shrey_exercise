@@ -8,7 +8,8 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Database\Connection;
-;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\InvokeCommand;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -59,6 +60,24 @@ class CustomForm extends FormBase {
 
     return $form;
   }
+  public function ajaxSubmit() {
+    $response = new AjaxResponse();
+    $response->addCommand(new InvokeCommand("html", 'testing'));
+    return $response;
+  }
+
+   /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $email = $form_state->getValue('email');
+    if (empty($email)) {
+      $form_state->setErrorByName('email', $this->t('Email is required.'));
+    }
+    elseif (!preg_match('/^[\w\-\.]+@[\w\-\.]+\.\w+$/', $email)) {
+      $form_state->setErrorByName('email', $this->t('enter valid email'));
+    }
+  }
 
   /**
    * Construct a function.
@@ -96,3 +115,4 @@ class CustomForm extends FormBase {
   }
 
 }
+

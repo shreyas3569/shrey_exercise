@@ -86,6 +86,11 @@ class ConfigForm extends ConfigFormBase {
     // Will return the form.
     return parent::buildForm($form, $form_state);
   }
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    if (strlen($form_state->getValue('phone')) < 3) {
+      $form_state->setErrorByName('phone', $this->t('The phone number is too short. Please enter a full phone number.'));
+    }
+  }
 
   /**
    * Submit form.
