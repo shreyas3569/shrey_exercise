@@ -58,7 +58,7 @@ function shrey_exercise_schema() {
 /**
  * Implements hook_update().
  */
-function shrey_exercise_update_100403() {
+function shrey_exercise_update_100404() {
   $database = \Drupal::database();
   $schema = $database->schema();
   $country_table_name = 'country';

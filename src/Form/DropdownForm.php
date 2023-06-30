@@ -68,7 +68,10 @@ class DropdownForm extends FormBase {
       '#empty_option' => $this->t('- Select -'),
       '#disabled' => FALSE,
     ];
-
+    $form['actions']['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Submit'),
+    ];
     return $form;
   }
 
